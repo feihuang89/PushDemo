@@ -13,6 +13,14 @@
     //点击启动程序
     action.activationMode = UIUserNotificationActivationModeForeground;
     
+    UIMutableUserNotificationAction * action2 = [[UIMutableUserNotificationAction alloc]init];
+    action2.identifier = @"action2";
+    action2.title = @"refuse";
+    //当点击的时候不启动程序，在后台处理
+    action2.activationMode = UIUserNotificationActivationModeBackground;
+    action2.authenticationRequired = YES; //需要解锁才能处理  如果action2.activationMode = UIUserNotificationActivationModeForeground  那么这个属性没用
+    action2.destructive = YES;
+    
     //2.创建动作类别集合
     UIMutableUserNotificationCategory * categorys = [[UIMutableUserNotificationCategory alloc]init];
     categorys.identifier = @"alert"; //这组动作的唯一标识
